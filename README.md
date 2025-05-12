@@ -43,12 +43,8 @@ Este projeto busca identificar os fatores que influenciam os clientes a aceitare
 
 ```
 decifrando_campanha/
-├── dados/
-│   └── dados_clientes.csv
-├── notebooks/
-│   └── analise_estatistica.ipynb
-├── imagens/
-│   └── grafico_importancia_variaveis.png
+├── dados_clientes.csv
+├── analise_estatistica.ipynb
 ├── README.md
 └── requisitos.txt
 ```
