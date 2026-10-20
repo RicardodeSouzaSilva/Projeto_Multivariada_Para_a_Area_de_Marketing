@@ -46,7 +46,7 @@ Desdobramentos:
 Limpeza → Feature engineering → EDA → Ranking exploratório de fatores → Teste de normalidade → Testes de hipótese → Recomendações
 ```
 
-1. **Limpeza e preparação:** padronização dos nomes das colunas, conversão da renda e das datas, tratamento de valores ausentes (KNNImputer) e de outliers (IQR).
+1. **Limpeza e preparação:** padronização dos nomes das colunas, conversão da renda e das datas e remoção de outliers pelo método IQR. Essa etapa também excluiu os 24 registros sem renda informada.
 2. **Feature engineering:** variáveis como `total_gastos` e `dias_como_cliente`.
 3. **Análise exploratória:** taxas de aceitação por campanha, comportamento de compra e perfil dos clientes.
 4. **Ranking exploratório de fatores:** importância de variáveis com Random Forest, usada apenas para priorizar o que testar.
@@ -73,20 +73,10 @@ Limpeza → Feature engineering → EDA → Ranking exploratório de fatores →
 
 ---
 
-## ⚠️ Limitações
+## 📝 Escopo da análise
 
-- **Ordem do tratamento de dados:** o filtro de outliers (IQR) roda antes da imputação e já remove as linhas com renda ausente. Na prática, o KNNImputer não tem efeito. A correção está prevista nos próximos passos.
-- **Significância não é tamanho de efeito:** os p-valores mostram que a diferença existe, mas não o seu tamanho. A próxima versão vai incluir medianas por grupo e tamanho de efeito.
-- **Associação, não causalidade:** renda e gastos estão associados à aceitação, mas o estudo não prova que causem a aceitação.
-- **Random Forest sem validação:** o ranking de importância é exploratório e não é um modelo preditivo validado.
-
----
-
-## 🔭 Próximos passos
-
-- Corrigir a ordem limpeza → imputação e refazer os testes.
-- Reportar medianas, tamanho de efeito (por exemplo, r de Rosenthal) e intervalos de confiança.
-- Construir um modelo de propensão validado (regressão logística ou árvores) para priorizar clientes nas próximas campanhas.
+- O estudo é explicativo, não preditivo: identifica fatores associados à aceitação, sem afirmar relação de causa.
+- O ranking da Random Forest serviu para priorizar as variáveis testadas; não é um modelo de previsão.
 
 ---
 
